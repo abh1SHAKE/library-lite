@@ -58,14 +58,12 @@ export const BookList: React.FC<BookListProps> = ({
       return;
     }
 
-    // Member is already borrowing
     if (book.currentLoan?.memberId === selectedMemberId) {
       onNotification("This member is already borrowing this book", "error");
       setActioningBookId(null);
       return;
     }
 
-    // Member is already in waitlist
     if (book.waitlist.includes(selectedMemberId)) {
       onNotification("This member is already in the waitlist", "error");
       setActioningBookId(null);
@@ -93,7 +91,6 @@ export const BookList: React.FC<BookListProps> = ({
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      {/* Search & member selector */}
       <div className="mb-6">
         <h2 className="text-xl text-[#16a34a] font-semibold mb-4">
           Book Catalog
@@ -161,7 +158,6 @@ export const BookList: React.FC<BookListProps> = ({
         </div>
       </div>
 
-      {/* Book list */}
       <div className="space-y-4">
         {currentBooks.length === 0 && filteredBooks.length > 0 ? (
           <div className="text-center py-8 text-[#373737]">
@@ -283,7 +279,6 @@ export const BookList: React.FC<BookListProps> = ({
         )}
       </div>
 
-      {/* Pagination */}
       {totalPages > 1 && (
         <div className="mt-6 flex justify-center items-center gap-4">
           <button
