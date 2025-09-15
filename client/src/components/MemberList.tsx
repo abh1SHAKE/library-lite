@@ -29,23 +29,23 @@ export const MemberList: React.FC<MemberListProps> = ({
           <h3 className="text-sm font-medium text-gray-700 mb-2">Summary</h3>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
             <div>
-              <p className="text-gray-500">Total Members</p>
+              <p title="Total Members" className="text-gray-500 cursor-default truncate">Total Members</p>
               <p className="text-lg font-semibold text-gray-900">{members.length}</p>
             </div>
             <div>
-              <p className="text-gray-500">Active Loans</p>
+              <p title="Active Loans" className="text-gray-500 cursor-default truncate">Active Loans</p>
               <p className="text-lg font-semibold text-gray-900">
                 {members.reduce((total, member) => total + getMemberLoans(member.id).length, 0)}
               </p>
             </div>
             <div>
-              <p className="text-gray-500">Members with Loans</p>
+              <p title="Members with Loans" className="text-gray-500 cursor-default truncate">Members with Loans</p>
               <p className="text-lg font-semibold text-gray-900">
                 {members.filter(member => getMemberLoans(member.id).length > 0).length}
               </p>
             </div>
             <div>
-              <p className="text-gray-500">Members with Overdue</p>
+              <p title="Members with Overdue" className="text-gray-500 cursor-default truncate">Members with Overdue</p>
               <p className="text-lg font-semibold text-red-600">
                 {members.filter(member =>
                   getMemberLoans(member.id).some(loan => isOverdue(loan.dueDate))

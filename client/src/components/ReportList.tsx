@@ -128,7 +128,7 @@ export const ReportList: React.FC<ReportListProps> = ({
             </div>
 
             {overdueLoans.length === 0 ? (
-              <div className="text-center py-8 text-green-600 bg-green-50 rounded-lg">
+              <div className="text-center py-8 px-4 text-green-600 bg-green-50 rounded-lg">
                 🎉 No overdue books! All loans are current.
               </div>
             ) : (
@@ -269,23 +269,23 @@ export const ReportList: React.FC<ReportListProps> = ({
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm">
           <div>
-            <p className="text-[#373737]">Total Books</p>
+            <p title="Total Books" className="text-[#373737] cursor-default truncate">Total Books</p>
             <p className="text-lg font-semibold text-gray-900">{books.length}</p>
           </div>
           <div>
-            <p className="text-[#373737]">Books Checked Out</p>
+            <p title="Books Checked Out" className="text-[#373737] cursor-default truncate">Books Checked Out</p>
             <p className="text-lg font-semibold text-gray-900">
               {books.filter((book) => book.checkoutCount > 0).length}
             </p>
           </div>
           <div>
-            <p className="text-[#373737]">Currently On Loan</p>
+            <p title="Currently On Loan" className="text-[#373737] cursor-default truncate">Currently On Loan</p>
             <p className="text-lg font-semibold text-gray-900">
               {books.filter((book) => book.status === 'on-loan').length}
             </p>
           </div>
           <div>
-            <p className="text-[#373737]">Overdue Books</p>
+            <p className="text-[#373737] cursor-default truncate">Overdue Books</p>
             <p className="text-lg font-semibold text-red-600">
               {overdueLoans.length}
             </p>

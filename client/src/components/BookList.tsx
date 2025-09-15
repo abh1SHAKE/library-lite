@@ -177,7 +177,7 @@ export const BookList: React.FC<BookListProps> = ({
 
             return (
               <div key={book.id} className="border border-gray-200 rounded-lg p-4">
-                <div className="flex justify-between items-start">
+                <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-2">
                       <h3 className="text-lg font-medium text-gray-900">
@@ -233,7 +233,7 @@ export const BookList: React.FC<BookListProps> = ({
                     </div>
                   </div>
 
-                  <div className="flex flex-col gap-2 ml-4">
+                  <div className="flex flex-col gap-2">
                     {book.status === "available" ? (
                       <button
                         onClick={() => handleLendBook(book.id)}
